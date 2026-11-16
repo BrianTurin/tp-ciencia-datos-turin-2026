@@ -2,6 +2,24 @@
 
 Motor de recomendación sobre feedback implícito (compras y horas jugadas) con API REST.
 
+## Probarlo online
+
+**https://tp-ciencia-datos-turin-2026.vercel.app** (abre la documentación interactiva).
+
+En cada endpoint: *Try it out* → completar → *Execute*. Recorrido sugerido para la consigna:
+
+1. `GET /recomendaciones/{id_usuario}` con `id_usuario = 151603712` y `k = 5` → usuario existente, recomendaciones personalizadas (`estrategia: factorizacion`).
+2. Mismo endpoint con un id inventado, por ejemplo `424242` → usuario sin historial, recomendaciones por popularidad (punto 3).
+3. `POST /interacciones` con el cuerpo de ejemplo de más abajo → registra interacciones del usuario nuevo.
+4. Repetir el paso 2 → las recomendaciones pasan a ser personalizadas (punto 2).
+
+`GET /juegos?busqueda=...` sirve para encontrar el título exacto de un juego.
+
+> Nota: la versión online corre en Vercel (serverless). Las interacciones registradas
+> por `POST /interacciones` se guardan en memoria: se ven de inmediato, pero si el
+> servicio queda inactivo unos minutos se reinicia con el modelo original. Corriendo
+> la API localmente, el estado se persiste en disco al cerrarla.
+
 ## Instalación
 
 ```bash
