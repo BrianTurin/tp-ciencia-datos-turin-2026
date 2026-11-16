@@ -1,0 +1,17 @@
+[project]
+name = "recomendador-videojuegos"
+version = "1.0.0"
+description = "Motor de recomendación sobre feedback implícito con API REST"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tests"]
+addopts = "-q"
+# Solo se silencia el ruido de dependencias de terceros; las advertencias del
+# código propio tienen que seguir siendo visibles.
+filterwarnings = [
+    "ignore::DeprecationWarning:starlette.*",
+    "ignore::DeprecationWarning:anyio.*",
+    "ignore:Using `httpx` with `starlette.testclient` is deprecated:",
+]
